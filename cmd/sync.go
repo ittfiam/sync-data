@@ -11,6 +11,7 @@ import (
 	"io"
 	"strings"
 	"errors"
+	"sync-mysql/notify"
 )
 
 
@@ -161,6 +162,7 @@ func syncInitCmd() *cobra.Command {
 func syncPlanCmd() *cobra.Command {
 
 	var command,datax string
+	var notifyUrl = "$notifyUrl"
 	c := &cobra.Command{
 		Use:     "plan",
 		Short:   "execute sync plan",
@@ -176,7 +178,7 @@ func syncPlanCmd() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&command,&datax)
+			err = variable.GetValue(&command,&datax,&notify)
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -230,6 +232,7 @@ func syncPlanCmd() *cobra.Command {
 			}
 		//	save context
 			pc.End()
+			go notify.Notify(notifyUrl)
 
 		},
 	}

@@ -14,14 +14,14 @@
                                     "jdbc:mysql://172.16.0.101:3306/db_order_2017"
                                 ],
                                 "table": [
-                                    "tb_order_20170504",
                                     "tb_order_20170505",
                                     "tb_order_20170506",
                                     "tb_order_20170507",
                                     "tb_order_20170508",
                                     "tb_order_20170509",
                                     "tb_order_20170510",
-                                    "tb_order_20170511"
+                                    "tb_order_20170511",
+                                    "tb_order_20170512"
                                 ]
                             }
                         ],
