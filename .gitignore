@@ -1,3 +1,4 @@
 /publish/**
-.idea
-.idea/**
+.idea/
+asset/describes
+asset/context
