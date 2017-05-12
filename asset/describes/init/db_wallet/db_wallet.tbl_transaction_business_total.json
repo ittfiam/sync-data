@@ -6,7 +6,10 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "business_time",
+                            "business_id",
+                            "extend",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +30,10 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "business_time",
+                            "business_id",
+                            "extend",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {

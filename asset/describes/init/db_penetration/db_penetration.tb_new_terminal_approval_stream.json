@@ -6,7 +6,16 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "event_uuid",
+                            "check_id",
+                            "terminal_id",
+                            "auditor_uid",
+                            "creator_uid",
+                            "approve_result",
+                            "terminal_create_time",
+                            "terminal_approve_time",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +36,16 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "event_uuid",
+                            "check_id",
+                            "terminal_id",
+                            "auditor_uid",
+                            "creator_uid",
+                            "approve_result",
+                            "terminal_create_time",
+                            "terminal_approve_time",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

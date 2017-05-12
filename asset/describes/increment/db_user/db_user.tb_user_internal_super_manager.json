@@ -6,7 +6,11 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "id_type",
+                            "id"
                         ],
                         "connection": [
                             {
@@ -27,7 +31,11 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "id_type",
+                            "id"
                         ],
                         "connection": [
                             {

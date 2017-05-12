@@ -6,7 +6,9 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "schedule_key",
+                            "create_time",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +29,9 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "schedule_key",
+                            "create_time",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {

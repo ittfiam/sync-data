@@ -11,7 +11,7 @@ import (
  */
 
 
-func Notify(url string){
+func NotifyBoss(url string){
 
 	//生成client 参数为默认
 	client := &http.Client{}

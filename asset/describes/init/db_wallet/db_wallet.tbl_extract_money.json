@@ -6,7 +6,24 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "symbol",
+                            "operate_key",
+                            "operate_type",
+                            "create_time",
+                            "update_time",
+                            "money",
+                            "mark",
+                            "bank_name",
+                            "bank_code",
+                            "bank_card_id",
+                            "bank_card_user_name",
+                            "extract_time_start",
+                            "extract_time_end",
+                            "has_extract_return_flag",
+                            "status",
+                            "extend",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +44,24 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "symbol",
+                            "operate_key",
+                            "operate_type",
+                            "create_time",
+                            "update_time",
+                            "money",
+                            "mark",
+                            "bank_name",
+                            "bank_code",
+                            "bank_card_id",
+                            "bank_card_user_name",
+                            "extract_time_start",
+                            "extract_time_end",
+                            "has_extract_return_flag",
+                            "status",
+                            "extend",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {

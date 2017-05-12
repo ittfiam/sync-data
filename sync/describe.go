@@ -37,14 +37,14 @@ func combination(param *DataXContext) *Job{
 	reader.Parameter.Connection = append(reader.Parameter.Connection,cr)
 	reader.Parameter.Username = param.SourceScheme.Username
 	reader.Parameter.Password = param.SourceScheme.Password
-	reader.Parameter.Column = append(reader.Parameter.Column,"*")
+	reader.Parameter.Column = param.SubRule.Columns
 
 	cw.JdbcUrl = param.TargetScheme.ToDataXMysql("")
 	cw.Table = append(cw.Table,param.SubRule.TargetTB)
 	writer.Parameter.Connection = append(writer.Parameter.Connection, cw)
 	writer.Parameter.Username = param.TargetScheme.Username
 	writer.Parameter.Password = param.TargetScheme.Password
-	writer.Parameter.Column = append(writer.Parameter.Column,"*")
+	writer.Parameter.Column = param.SubRule.Columns
 
 	if !param.SubRule.NotNeedTruncate{
 		dropSql := writer.MakeDeleteSql(param.SubRule.TargetTB)
@@ -77,6 +77,7 @@ func combinationIncrement(param *DataXContext) *Job{
 	cw := mysql.NewConnectionWriter()
 
 	cr.JdbcUrl = append(cr.JdbcUrl, param.SourceScheme.ToDataXMysql(param.DbName))
+	// 根据规则获取需要更新的表
 	ts := param.SubRule.GetUpdateTable(param.SourceTable)
 	if ts == nil || len(ts) <= 0{
 		return nil
@@ -85,7 +86,7 @@ func combinationIncrement(param *DataXContext) *Job{
 	reader.Parameter.Connection = append(reader.Parameter.Connection,cr)
 	reader.Parameter.Username = param.SourceScheme.Username
 	reader.Parameter.Password = param.SourceScheme.Password
-	reader.Parameter.Column = append(reader.Parameter.Column,"*")
+	reader.Parameter.Column = param.SubRule.Columns
 
 	reader.Parameter.Where = param.SubRule.getUpdateColumn() + " > '$last_update_date $last_update_time'"
 
@@ -94,7 +95,7 @@ func combinationIncrement(param *DataXContext) *Job{
 	writer.Parameter.Connection = append(writer.Parameter.Connection, cw)
 	writer.Parameter.Username = param.TargetScheme.Username
 	writer.Parameter.Password = param.TargetScheme.Password
-	writer.Parameter.Column = append(writer.Parameter.Column,"*")
+	writer.Parameter.Column = param.SubRule.Columns
 
 	writer.Parameter.WriteMode = "replace"
 
@@ -163,6 +164,9 @@ func NewDescribeFromSchema(
 			sr.SourceTable = append(sr.SourceTable,tb.Name)
 			// 重命名表
 			sr.Sql = strings.Replace(tb.Sql,tb.Name,rSub.TargetTB,1)
+			if rSub.Columns == nil || len(rSub.Columns) == 0{
+				rSub.Columns = tb.GetColumnStr()
+			}
 		}
 
 		if len(temp) != 0{
@@ -237,6 +241,9 @@ func IncrementDescribeFromSchema(
 			sr.SourceTable = append(sr.SourceTable,tb.Name)
 			// 重命名表
 			sr.Sql = strings.Replace(tb.Sql,tb.Name,rSub.TargetTB,1)
+			if rSub.Columns == nil || len(rSub.Columns) == 0{
+				rSub.Columns = tb.GetColumnStr()
+			}
 		}
 
 		if len(temp) != 0{

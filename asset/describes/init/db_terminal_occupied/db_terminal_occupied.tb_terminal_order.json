@@ -6,7 +6,13 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "terminal_id",
+                            "uid",
+                            "order_time",
+                            "occupied_days",
+                            "data_version",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +33,13 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "terminal_id",
+                            "uid",
+                            "order_time",
+                            "occupied_days",
+                            "data_version",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

@@ -6,7 +6,8 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "id",
+                            "flag"
                         ],
                         "connection": [
                             {
@@ -27,7 +28,8 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "id",
+                            "flag"
                         ],
                         "connection": [
                             {

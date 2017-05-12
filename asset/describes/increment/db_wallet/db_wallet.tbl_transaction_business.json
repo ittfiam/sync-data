@@ -6,7 +6,22 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "operate_person",
+                            "business_time",
+                            "business_id",
+                            "detail_id",
+                            "pipeline_id",
+                            "update_time",
+                            "status",
+                            "money_from_id",
+                            "money_from_name",
+                            "money_to_id",
+                            "money_to_name",
+                            "money",
+                            "fee_type",
+                            "mark",
+                            "extend",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +42,22 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "operate_person",
+                            "business_time",
+                            "business_id",
+                            "detail_id",
+                            "pipeline_id",
+                            "update_time",
+                            "status",
+                            "money_from_id",
+                            "money_from_name",
+                            "money_to_id",
+                            "money_to_name",
+                            "money",
+                            "fee_type",
+                            "mark",
+                            "extend",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {

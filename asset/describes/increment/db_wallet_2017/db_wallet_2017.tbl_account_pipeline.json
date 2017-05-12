@@ -6,7 +6,23 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "business_id",
+                            "detail_id",
+                            "pipeline_id",
+                            "money_from_id",
+                            "money_from_name",
+                            "money_to_id",
+                            "money_to_name",
+                            "account_id",
+                            "account_name",
+                            "create_time",
+                            "symbol",
+                            "money",
+                            "fee_type",
+                            "mark",
+                            "extend",
+                            "remaining_money",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {
@@ -28,7 +44,23 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "business_id",
+                            "detail_id",
+                            "pipeline_id",
+                            "money_from_id",
+                            "money_from_name",
+                            "money_to_id",
+                            "money_to_name",
+                            "account_id",
+                            "account_name",
+                            "create_time",
+                            "symbol",
+                            "money",
+                            "fee_type",
+                            "mark",
+                            "extend",
+                            "remaining_money",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {

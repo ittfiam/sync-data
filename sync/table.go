@@ -227,6 +227,14 @@ func (table *Table) ColumnExists(name string) bool {
 	return false
 }
 
+func (table *Table) GetColumnStr() []string{
+	result := make([]string,0)
+	for _, column := range table.Columns {
+		result = append(result,column.Name)
+	}
+	return result
+}
+
 func NewTable(name string, index int, db *DB) *Table {
 	table := &Table{
 		Name:    name,

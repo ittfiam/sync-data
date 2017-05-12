@@ -6,7 +6,18 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "user_type",
+                            "phone",
+                            "email",
+                            "password",
+                            "jpush_id",
+                            "wechat_openid",
+                            "status",
+                            "pic_key",
+                            "register_time",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +38,18 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "user_type",
+                            "phone",
+                            "email",
+                            "password",
+                            "jpush_id",
+                            "wechat_openid",
+                            "status",
+                            "pic_key",
+                            "register_time",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

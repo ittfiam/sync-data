@@ -178,7 +178,7 @@ func syncPlanCmd() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&command,&datax,&notify)
+				err = variable.GetValue(&command,&datax,&notifyUrl)
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -232,7 +232,7 @@ func syncPlanCmd() *cobra.Command {
 			}
 		//	save context
 			pc.End()
-			go notify.Notify(notifyUrl)
+			go notify.NotifyBoss(notifyUrl)
 
 		},
 	}

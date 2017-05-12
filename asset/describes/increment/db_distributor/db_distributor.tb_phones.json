@@ -6,7 +6,10 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "distributor_id",
+                            "phone",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +30,10 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "distributor_id",
+                            "phone",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

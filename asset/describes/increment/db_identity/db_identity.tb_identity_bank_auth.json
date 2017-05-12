@@ -6,7 +6,12 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "identity_card",
+                            "bank_card",
+                            "username",
+                            "auth_result",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +32,12 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "identity_card",
+                            "bank_card",
+                            "username",
+                            "auth_result",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

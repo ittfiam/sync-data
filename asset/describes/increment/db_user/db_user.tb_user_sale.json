@@ -6,7 +6,27 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "nick_name",
+                            "nick_name_pys",
+                            "id_type",
+                            "id",
+                            "is_verify",
+                            "recommend_code",
+                            "is_bind_card",
+                            "referrer_uid",
+                            "first_login",
+                            "login_client",
+                            "latitude",
+                            "longitude",
+                            "description",
+                            "province_code",
+                            "city_code",
+                            "region_code",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +47,27 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "nick_name",
+                            "nick_name_pys",
+                            "id_type",
+                            "id",
+                            "is_verify",
+                            "recommend_code",
+                            "is_bind_card",
+                            "referrer_uid",
+                            "first_login",
+                            "login_client",
+                            "latitude",
+                            "longitude",
+                            "description",
+                            "province_code",
+                            "city_code",
+                            "region_code",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

@@ -6,7 +6,25 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "distributor_id",
+                            "goods_id",
+                            "goods_price",
+                            "commission",
+                            "sales_commission",
+                            "penetration_amount",
+                            "sales_penetration",
+                            "goods_gift",
+                            "sellout_status",
+                            "create_time",
+                            "update_time",
+                            "distributor_pay_commission",
+                            "distributor_commission",
+                            "platform_subsidy_commission",
+                            "platform_commission_profit",
+                            "distributor_pay_penetration",
+                            "distributor_penetration",
+                            "platform_subsidy_penetration",
+                            "platform_penetration_profit"
                         ],
                         "connection": [
                             {
@@ -27,7 +45,25 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "distributor_id",
+                            "goods_id",
+                            "goods_price",
+                            "commission",
+                            "sales_commission",
+                            "penetration_amount",
+                            "sales_penetration",
+                            "goods_gift",
+                            "sellout_status",
+                            "create_time",
+                            "update_time",
+                            "distributor_pay_commission",
+                            "distributor_commission",
+                            "platform_subsidy_commission",
+                            "platform_commission_profit",
+                            "distributor_pay_penetration",
+                            "distributor_penetration",
+                            "platform_subsidy_penetration",
+                            "platform_penetration_profit"
                         ],
                         "connection": [
                             {

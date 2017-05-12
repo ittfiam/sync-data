@@ -6,7 +6,17 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "operate_key",
+                            "time",
+                            "award_type",
+                            "money",
+                            "flag",
+                            "extend",
+                            "extend1",
+                            "extend2",
+                            "extend3",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +37,17 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "operate_key",
+                            "time",
+                            "award_type",
+                            "money",
+                            "flag",
+                            "extend",
+                            "extend1",
+                            "extend2",
+                            "extend3",
+                            "db_record_update_time"
                         ],
                         "connection": [
                             {

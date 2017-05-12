@@ -6,7 +6,25 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "id_type",
+                            "id",
+                            "country_code",
+                            "country",
+                            "district_code",
+                            "district",
+                            "province_code",
+                            "province",
+                            "city_code",
+                            "city",
+                            "add_uid",
+                            "add_time",
+                            "set_uid",
+                            "set_time",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +45,25 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "id_type",
+                            "id",
+                            "country_code",
+                            "country",
+                            "district_code",
+                            "district",
+                            "province_code",
+                            "province",
+                            "city_code",
+                            "city",
+                            "add_uid",
+                            "add_time",
+                            "set_uid",
+                            "set_time",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

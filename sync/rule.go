@@ -17,6 +17,7 @@ increment 7天前
 type RuleSub struct {
 	SourceTb string `json:"source_tb"`
 	TargetTB string `json:"target_tb"`
+	Columns []string `json:"columns"`
 	UpdateTb string `json:"update_tb"`
 	UpdateColumn string `json:"update_column"`
 	NotNeedTruncate bool `json:"not_need_truncate"`
@@ -35,6 +36,7 @@ func NewRuleSub(sourceTb string) *RuleSub{
 		SourceTb:sourceTb,
 		TargetTB:sourceTb,
 		UpdateTb:sourceTb,
+		Columns:make([]string,0),
 		UpdateColumn:"update_time",
 	}
 }

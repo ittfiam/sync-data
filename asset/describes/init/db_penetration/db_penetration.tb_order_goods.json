@@ -6,7 +6,18 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "terminal_id",
+                            "goods_id",
+                            "place_uid",
+                            "order_id",
+                            "place_time",
+                            "goods_info",
+                            "year",
+                            "month",
+                            "week",
+                            "penetration_status",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +38,18 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "terminal_id",
+                            "goods_id",
+                            "place_uid",
+                            "order_id",
+                            "place_time",
+                            "goods_info",
+                            "year",
+                            "month",
+                            "week",
+                            "penetration_status",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

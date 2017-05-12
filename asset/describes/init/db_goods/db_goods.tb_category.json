@@ -6,7 +6,22 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "category_id",
+                            "category_name",
+                            "category_level",
+                            "first_category_id",
+                            "first_category_name",
+                            "second_category_id",
+                            "second_category_name",
+                            "third_category_id",
+                            "third_category_name",
+                            "fourth_category_id",
+                            "fourth_category_name",
+                            "sub_category_ids",
+                            "create_person",
+                            "create_time",
+                            "update_person",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +42,22 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "category_id",
+                            "category_name",
+                            "category_level",
+                            "first_category_id",
+                            "first_category_name",
+                            "second_category_id",
+                            "second_category_name",
+                            "third_category_id",
+                            "third_category_name",
+                            "fourth_category_id",
+                            "fourth_category_name",
+                            "sub_category_ids",
+                            "create_person",
+                            "create_time",
+                            "update_person",
+                            "update_time"
                         ],
                         "connection": [
                             {

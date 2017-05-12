@@ -6,7 +6,14 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "occupied_id",
+                            "occupied_range",
+                            "status",
+                            "longitude",
+                            "latitude",
+                            "description",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +34,14 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "occupied_id",
+                            "occupied_range",
+                            "status",
+                            "longitude",
+                            "latitude",
+                            "description",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {

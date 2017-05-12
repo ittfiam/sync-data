@@ -6,7 +6,8 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "counter_id",
+                            "max_id"
                         ],
                         "connection": [
                             {
@@ -27,7 +28,8 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "counter_id",
+                            "max_id"
                         ],
                         "connection": [
                             {

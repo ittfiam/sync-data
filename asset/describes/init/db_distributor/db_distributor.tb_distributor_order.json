@@ -6,7 +6,14 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "distributor_id",
+                            "user_id",
+                            "expiring_order_amount",
+                            "unfilled_order_amount",
+                            "statistic_day",
+                            "create_time",
+                            "send_status",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +34,14 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "distributor_id",
+                            "user_id",
+                            "expiring_order_amount",
+                            "unfilled_order_amount",
+                            "statistic_day",
+                            "create_time",
+                            "send_status",
+                            "update_time"
                         ],
                         "connection": [
                             {

@@ -6,7 +6,18 @@
                     "name": "mysqlreader",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "bank_name",
+                            "bank_code",
+                            "province_code",
+                            "city_code",
+                            "card",
+                            "id",
+                            "status",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
@@ -27,7 +38,18 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "column": [
-                            "*"
+                            "uid",
+                            "name",
+                            "name_pys",
+                            "bank_name",
+                            "bank_code",
+                            "province_code",
+                            "city_code",
+                            "card",
+                            "id",
+                            "status",
+                            "create_time",
+                            "update_time"
                         ],
                         "connection": [
                             {
