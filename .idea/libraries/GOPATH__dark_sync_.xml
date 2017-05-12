@@ -1,0 +1,33 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;dark-sync&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../SyncMysql" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../bossGo" />
+      <root url="file://$PROJECT_DIR$/../my_go_test" />
+      <root url="file://$PROJECT_DIR$/../go_test" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../logAnalysis" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/labix.org" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../Auth" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../SyncMysql" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../bossGo" />
+      <root url="file://$PROJECT_DIR$/../my_go_test" />
+      <root url="file://$PROJECT_DIR$/../go_test" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../logAnalysis" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/labix.org" />
+      <root url="file://$PROJECT_DIR$/../../../thirdpart/src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../Auth" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

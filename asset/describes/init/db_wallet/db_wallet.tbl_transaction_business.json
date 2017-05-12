@@ -1,0 +1,57 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": [
+                                    "jdbc:mysql://172.16.0.101:3306/db_wallet"
+                                ],
+                                "table": [
+                                    "tbl_transaction_business"
+                                ]
+                            }
+                        ],
+                        "username": "gaoguosheng",
+                        "password": "gaoguosheng@useus",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://172.16.0.101:3306/db_statistics",
+                                "table": [
+                                    "tbl_transaction_business"
+                                ]
+                            }
+                        ],
+                        "preSql": [
+                            " TRUNCATE TABLE tbl_transaction_business;"
+                        ],
+                        "session": [],
+                        "username": "gaoguosheng",
+                        "password": "gaoguosheng@useus",
+                        "writeMode": "insert"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        }
+    }
+}

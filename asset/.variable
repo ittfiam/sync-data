@@ -1,0 +1,12 @@
+{
+    "vars": {
+        "mongo": "172.16.0.101:27017",
+        "mysql": "mysql://dev:dev@useus@172.16.0.101:3306/db_boss#utf8",
+        "source":"mysql://gaoguosheng:gaoguosheng@useus@172.16.0.101:3306/db_boss#utf8",
+        "target":"mysql://gaoguosheng:gaoguosheng@useus@172.16.0.101:3306/db_statistics#utf8",
+        "mysql101": "chenhongchu:chenhongchu@useus@tcp(172.16.0.101:3306)/",
+        "command":"python",
+        "presql":"mysql -h172.16.0.101 -ugaoguosheng -pgaoguosheng@useus -P3306 db_statistics < %s",
+        "datax": "E:\\datax\\datax\\bin\\datax.py"
+    }
+}

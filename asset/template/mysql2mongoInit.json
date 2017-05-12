@@ -1,0 +1,43 @@
+{
+  "job": {
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "column": [],
+            "connection": [
+              {
+                "jdbcUrl": [],
+                "table": []
+              }
+            ],
+            "password": "",
+            "username": "",
+            "where": ""
+          }
+        },
+        "writer": {
+          "name": "mongodbwriter",
+          "parameter": {
+            "address": [],
+            "collectionName": "",
+            "column": [],
+            "dbName": "",
+            "upsertInfo": {
+              "isUpsert": "",
+              "upsertKey": ""
+            },
+            "userName": "",
+            "userPassword": ""
+          }
+        }
+      }
+    ],
+    "setting": {
+      "speed": {
+        "channel": ""
+      }
+    }
+  }
+}

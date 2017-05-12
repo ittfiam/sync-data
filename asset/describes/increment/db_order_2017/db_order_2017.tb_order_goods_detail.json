@@ -1,0 +1,62 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": [
+                                    "jdbc:mysql://172.16.0.101:3306/db_order_2017"
+                                ],
+                                "table": [
+                                    "tb_order_goods_detail_20170504",
+                                    "tb_order_goods_detail_20170505",
+                                    "tb_order_goods_detail_20170506",
+                                    "tb_order_goods_detail_20170507",
+                                    "tb_order_goods_detail_20170508",
+                                    "tb_order_goods_detail_20170509",
+                                    "tb_order_goods_detail_20170510",
+                                    "tb_order_goods_detail_20170511"
+                                ]
+                            }
+                        ],
+                        "username": "gaoguosheng",
+                        "password": "gaoguosheng@useus",
+                        "where": "update_time \u003e '$last_update_date $last_update_time'"
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://172.16.0.101:3306/db_statistics",
+                                "table": [
+                                    "tb_order_goods_detail"
+                                ]
+                            }
+                        ],
+                        "preSql": [],
+                        "session": [],
+                        "username": "gaoguosheng",
+                        "password": "gaoguosheng@useus",
+                        "writeMode": "replace"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": [
+                                    "jdbc:mysql://172.16.0.101:3306/db_terminal"
+                                ],
+                                "table": [
+                                    "sph_counter"
+                                ]
+                            }
+                        ],
+                        "username": "gaoguosheng",
+                        "password": "gaoguosheng@useus",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://172.16.0.101:3306/db_statistics",
+                                "table": [
+                                    "sph_counter"
+                                ]
+                            }
+                        ],
+                        "preSql": [
+                            " TRUNCATE TABLE sph_counter;"
+                        ],
+                        "session": [],
+                        "username": "gaoguosheng",
+                        "password": "gaoguosheng@useus",
+                        "writeMode": "insert"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+  "job": {
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "column": [],
+            "connection": [
+              {
+                "jdbcUrl": [],
+                "table": []
+              }
+            ],
+            "password": "",
+            "username": "",
+            "where": ""
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "column": [],
+            "connection": [
+              {
+                "jdbcUrl": "",
+                "table": []
+              }
+            ],
+            "password": "",
+            "preSql": [],
+            "session": [],
+            "username": "",
+            "writeMode": ""
+          }
+        }
+      }
+    ],
+    "setting": {
+      "speed": {
+        "channel": ""
+      }
+    }
+  }
+}

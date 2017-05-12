@@ -1,0 +1,16 @@
+[INFO] 2017-03-28T15:22:51 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:25:40 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:26:12 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:26:17 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:26:48 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:26:52 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:28:46 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:29:37 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:30:23 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:30:23 main.go main.init.1 => 初始化配置项
+[INFO] 2017-03-28T15:30:47 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:30:47 main.go main.init.1 => 初始化配置项
+[INFO] 2017-03-28T15:30:57 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:30:57 main.go main.init.1 => 初始化配置项
+[INFO] 2017-03-28T15:33:10 main.go main.InitLog =>  log has init 
+[INFO] 2017-03-28T15:33:10 main.go main.init.1 => 初始化配置项
