@@ -125,13 +125,13 @@ func describeCreate() *cobra.Command {
 	flags.StringVar(
 		&source,
 		"source",
-		"",
+		"$source",
 		"use source schema to generate describe (value or $variable)")
 
 	flags.StringVar(
 		&target,
 		"target",
-		"",
+		"$target",
 		"target db to sync data (value or $variable)")
 
 	flags.StringVar(
@@ -202,13 +202,13 @@ func describePlan() *cobra.Command {
 	flags.StringVar(
 		&source,
 		"source",
-		"",
+		"$source",
 		"use mysql schema to generate describe (value or $variable)")
 
 	flags.StringVar(
 		&target,
 		"target",
-		"",
+		"$target",
 		"user db to sync (value or $variable)")
 
 	flags.StringVar(

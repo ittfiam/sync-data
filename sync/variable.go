@@ -43,22 +43,26 @@ func (v *Variables) GetValue(keys ...*string) error {
 
 }
 
-func NewVariables() (variables *Variables, err error) {
-	variables = &Variables{
+func NewVariables()  (*Variables,error) {
+	variables := &Variables{
 		Vars: make(map[string]string, 0),
 	}
 
 	exist, err := AssetExists(".variable")
 
 	if err != nil {
-		return
+		return nil,err
 	}
 
 	if exist {
 		err = ReadAssetAsJSON(".variable", variables)
-		return
-	} else {
-		err = variables.Save()
-		return
+
+		if err != nil{
+			return nil,err
+		}
+		return variables,nil
+
 	}
+
+	return nil,errors.NewError("未能初始化.variable")
 }

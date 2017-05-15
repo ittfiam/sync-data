@@ -34,6 +34,8 @@ func AssetExists(relative string) (bool, error) {
 
 	filename := filepath.Join(abs, "asset", relative)
 
+	fmt.Println(filename)
+
 
 	_, err = os.Stat(filename)
 

@@ -7,7 +7,7 @@ import (
 func NewRootCmd() *cobra.Command {
 
 	command := &cobra.Command{
-		Use: "dark-sync",
+		Use: "sync-mysql",
 		Run: func(cmd *cobra.Command, args []string) {
 			cmd.Help()
 		}}

@@ -145,13 +145,13 @@ func syncInitCmd() *cobra.Command {
 	flags.StringVar(
 		&command,
 		"command",
-		"",
+		"$command",
 		"use datax sync data command (value or $command)")
 
 	flags.StringVar(
 		&datax,
 		"datax",
-		"",
+		"$datax",
 		"use datax sync data command (value or $datax)")
 
 
@@ -178,7 +178,7 @@ func syncPlanCmd() *cobra.Command {
 				return
 			}
 
-				err = variable.GetValue(&command,&datax,&notifyUrl)
+			err = variable.GetValue(&command,&datax,&notifyUrl)
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -242,13 +242,13 @@ func syncPlanCmd() *cobra.Command {
 	flags.StringVar(
 		&command,
 		"command",
-		"",
+		"$command",
 		"use datax sync data command (value or $command)")
 
 	flags.StringVar(
 		&datax,
 		"datax",
-		"",
+		"$datax",
 		"use datax sync data command (value or $datax)")
 
 
@@ -340,13 +340,13 @@ func syncCreateCmd() *cobra.Command {
 	flags.StringVar(
 		&file,
 		"file",
-		"",
+		"all",
 		"use create table sql file(all,为所有)")
 
 	flags.StringVar(
 		&target,
 		"target",
-		"",
+		"$target",
 		"use sync db scheme")
 
 
