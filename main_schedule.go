@@ -31,7 +31,6 @@ func main(){
 	c.AddFunc("0 15 5 * * *", SchedulerIncrement)
 	c.AddFunc("0 15 13 * * *", SchedulerIncrement)
 	c.AddFunc("0 15 18 * * *", SchedulerIncrement)
-	c.AddFunc("59 59 * * * *", SchedulerIncrement)
 	c.Start()
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, os.Interrupt, os.Kill)
