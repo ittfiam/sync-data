@@ -166,7 +166,7 @@ func syncPlanCmd() *cobra.Command {
 	c := &cobra.Command{
 		Use:     "plan",
 		Short:   "execute sync plan",
-		Example: "sync-mysql sync plan",
+		Example: "sync-mysqlplugin sync plan",
 		Run: func(cmd *cobra.Command, args []string) {
 
 			//	执行同步命令（init）
@@ -261,7 +261,7 @@ func syncCreateCmd() *cobra.Command {
 	c := &cobra.Command{
 		Use:     "runsql",
 		Short:   "drop and create table",
-		Example: "sync-mysql create table",
+		Example: "sync-mysqlplugin create table",
 		Run: func(cmd *cobra.Command, args []string) {
 
 			// 执行 初始化表命令

@@ -23,7 +23,7 @@ type RuleSub struct {
 	NotNeedTruncate bool `json:"not_need_truncate"`
 }
 
-func (subRule *RuleSub) getUpdateColumn() string{
+func (subRule *RuleSub) GetUpdateColumn() string{
 
 	if subRule.UpdateColumn == ""{
 		return "update_time"

@@ -2,7 +2,6 @@ package sync
 
 
 
-
 type DataXContext struct {
 
 	DbName string
@@ -10,8 +9,7 @@ type DataXContext struct {
 	Sql string
 	Rule *RuleConfig
 	SubRule *RuleSub
-	SourceScheme *ConnectScheme
-	TargetScheme *ConnectScheme
+	Table *Table
 }
 
 func NewDataxContext() *DataXContext{

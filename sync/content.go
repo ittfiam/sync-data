@@ -49,7 +49,7 @@ func newContent(reader interface{},writer interface{}) *Content{
 
 type Jobs struct {
 
-	Content []*Content `json:"content"`
+	Content []*Content `json:"plugin"`
 
 	Sett *Setting `json:"setting"`
 
@@ -80,4 +80,3 @@ func NewWorker(reader interface{},writer interface{}) *Work{
 		Job:job,
 	}
 }
-

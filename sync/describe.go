@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"sync-mysql/errors"
-	"sync-mysql/content/mysql"
 	"strings"
 )
 
@@ -25,99 +24,20 @@ func NewDescribeFromAsset(relative string) (describe *Describe, err error) {
 	return
 }
 
-func combination(param *DataXContext) *Job{
-	reader := mysql.NewReader()
-	writer := mysql.NewWriter()
 
-	cr := mysql.NewConnectionReader()
-	cw := mysql.NewConnectionWriter()
-
-	cr.JdbcUrl = append(cr.JdbcUrl, param.SourceScheme.ToDataXMysql(param.DbName))
-	cr.Table = param.SourceTable
-	reader.Parameter.Connection = append(reader.Parameter.Connection,cr)
-	reader.Parameter.Username = param.SourceScheme.Username
-	reader.Parameter.Password = param.SourceScheme.Password
-	reader.Parameter.Column = param.SubRule.Columns
-
-	cw.JdbcUrl = param.TargetScheme.ToDataXMysql("")
-	cw.Table = append(cw.Table,param.SubRule.TargetTB)
-	writer.Parameter.Connection = append(writer.Parameter.Connection, cw)
-	writer.Parameter.Username = param.TargetScheme.Username
-	writer.Parameter.Password = param.TargetScheme.Password
-	writer.Parameter.Column = param.SubRule.Columns
-
-	if !param.SubRule.NotNeedTruncate{
-		dropSql := writer.MakeDeleteSql(param.SubRule.TargetTB)
-		writer.Parameter.PreSql = append(writer.Parameter.PreSql,dropSql)
-	}
-	writer.Parameter.WriteMode = "insert"
-
-
-
-	work := NewWorker(reader,writer)
-
-	job := new(Job)
-	job.Name = fmt.Sprintf("%s.%s", param.DbName, param.SubRule.TargetTB)
-	job.Enable = true
-	job.DB = param.DbName
-	job.Collection = param.SubRule.TargetTB
-	job.Work = work
-	job.Sql = make([]string,0)
-	job.Sql = append(job.Sql,writer.MakeDropSql(param.SubRule.TargetTB))
-	job.Sql = append(job.Sql,writer.MakeCreateSql(param.Sql))
-	return job
-}
-
-
-func combinationIncrement(param *DataXContext) *Job{
-	reader := mysql.NewReader()
-	writer := mysql.NewWriter()
-
-	cr := mysql.NewConnectionReader()
-	cw := mysql.NewConnectionWriter()
-
-	cr.JdbcUrl = append(cr.JdbcUrl, param.SourceScheme.ToDataXMysql(param.DbName))
-	// 根据规则获取需要更新的表
-	ts := param.SubRule.GetUpdateTable(param.SourceTable)
-	if ts == nil || len(ts) <= 0{
-		return nil
-	}
-	cr.Table = ts
-	reader.Parameter.Connection = append(reader.Parameter.Connection,cr)
-	reader.Parameter.Username = param.SourceScheme.Username
-	reader.Parameter.Password = param.SourceScheme.Password
-	reader.Parameter.Column = param.SubRule.Columns
-
-	reader.Parameter.Where = param.SubRule.getUpdateColumn() + " > '$last_update_date $last_update_time'"
-
-	cw.JdbcUrl = param.TargetScheme.ToDataXMysql("")
-	cw.Table = append(cw.Table,param.SubRule.TargetTB)
-	writer.Parameter.Connection = append(writer.Parameter.Connection, cw)
-	writer.Parameter.Username = param.TargetScheme.Username
-	writer.Parameter.Password = param.TargetScheme.Password
-	writer.Parameter.Column = param.SubRule.Columns
-
-	writer.Parameter.WriteMode = "replace"
-
-
-
-	work := NewWorker(reader,writer)
-
-	job := new(Job)
-	job.Name = fmt.Sprintf("%s.%s", param.DbName, param.SubRule.TargetTB)
-	job.Enable = true
-	job.DB = param.DbName
-	job.Collection = param.SubRule.TargetTB
-	job.Work = work
-	return job
-}
 
 
 func NewDescribeFromSchema(
-	sourceScheme *ConnectScheme,
-	targetScheme *ConnectScheme,
+	param *CommandParam,
 	schema *Schema,
 	) (*Describe,error) {
+
+
+	sourceScheme,err := param.GetSourceSchema()
+	if err != nil{
+
+		return nil,err
+	}
 
 	describe := &Describe{
 		MySQL: sourceScheme.ToGoMysql(),
@@ -160,6 +80,7 @@ func NewDescribeFromSchema(
 			if !ok {
 				sr = NewDataxContext()
 				temp[rSub] = sr
+				sr.Table = tb
 			}
 			sr.SourceTable = append(sr.SourceTable,tb.Name)
 			// 重命名表
@@ -172,11 +93,9 @@ func NewDescribeFromSchema(
 		if len(temp) != 0{
 			for key,value := range temp{
 				value.DbName = db.Name
-				value.SourceScheme = sourceScheme
-				value.TargetScheme = targetScheme
 				value.Rule = r
 				value.SubRule = key
-				job := combination(value)
+				job := Combination(value,param)
 				if job == nil{
 					continue
 				}
@@ -249,11 +168,9 @@ func IncrementDescribeFromSchema(
 		if len(temp) != 0{
 			for key,value := range temp{
 				value.DbName = db.Name
-				value.SourceScheme = sourceScheme
-				value.TargetScheme = targetScheme
 				value.Rule = r
 				value.SubRule = key
-				job := combinationIncrement(value)
+				job := Combination(value,nil)
 				if job == nil{
 					continue
 				}

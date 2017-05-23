@@ -53,6 +53,7 @@ type Job struct {
 	Work *Work
 	Sql []string
 	Mode string
+	WRName string
 }
 
 

@@ -9,7 +9,13 @@ import (
 
 
 
-func initCreate(source *sync.ConnectScheme,target *sync.ConnectScheme,info *sync.SchemaInfo){
+func initCreate(param *sync.CommandParam,info *sync.SchemaInfo){
+
+	source,err := param.GetSourceSchema()
+
+	if err != nil{
+		return
+	}
 
 	schema, err := sync.NewSchemaFromMysql(source.ToGoMysql(), info)
 
@@ -18,9 +24,9 @@ func initCreate(source *sync.ConnectScheme,target *sync.ConnectScheme,info *sync
 		return
 	}
 
+
 	describe,err2 := sync.NewDescribeFromSchema(
-		source,
-		target,
+		param,
 		schema,
 	)
 
@@ -36,13 +42,13 @@ func initCreate(source *sync.ConnectScheme,target *sync.ConnectScheme,info *sync
 
 	for _,job := range describe.Jobs{
 		err = sync.SaveAssetAsJSON(
-			filepath.Join("describes","init",job.DB, job.Name + ".json"),
+			filepath.Join("describes",job.WRName,"init",job.DB, job.Name + ".json"),
 			job.Work,
 		)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
-		job.SaveSql(filepath.Join("describes","sql",job.Name + ".sql"))
+		job.SaveSql(filepath.Join("describes",job.WRName,"sql",job.Name + ".sql"))
 	}
 }
 
@@ -77,7 +83,7 @@ func incrementCreate(source *sync.ConnectScheme,target *sync.ConnectScheme,info 
 
 func describeCreate() *cobra.Command {
 
-	var source, target, prefix string
+	param := new(sync.CommandParam)
 	skips := make([]string, 0)
 
 	command := &cobra.Command{
@@ -92,30 +98,19 @@ func describeCreate() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&source, &target)
+			err = variable.GetValue(&param.Source, &param.Target,&param.Reader,&param.Writer)
 
 			if err != nil {
 				fmt.Println(err.Error())
 				return
 			}
 
-			sourceScheme,err1 := sync.ParseScheme(source)
-			if err1 != nil {
-				fmt.Println(err.Error())
-				return
-			}
-
-			targetScheme,err2 := sync.ParseScheme(target)
-			if err2 != nil {
-				fmt.Println(err.Error())
-				return
-			}
 
 			info := sync.NewSchemaInfo()
-			info.Prefix = prefix
+			info.Prefix = param.Prefix
 			info.AddSkips(skips...)
 
-			initCreate(sourceScheme,targetScheme,info)
+			initCreate(param,info)
 
 		},
 	}
@@ -123,19 +118,31 @@ func describeCreate() *cobra.Command {
 	flags := command.Flags()
 
 	flags.StringVar(
-		&source,
+		&param.Source,
 		"source",
 		"$source",
 		"use source schema to generate describe (value or $variable)")
 
 	flags.StringVar(
-		&target,
+		&param.Target,
 		"target",
 		"$target",
 		"target db to sync data (value or $variable)")
 
 	flags.StringVar(
-		&prefix,
+		&param.Reader,
+		"reader",
+		"$reader",
+		"reader mode  (value or $variable,like mysqlreader)")
+
+	flags.StringVar(
+		&param.Writer,
+		"writer",
+		"$writer",
+		"reader mode  (value or $variable,like mysqlwriter)")
+
+	flags.StringVar(
+		&param.Prefix,
 		"prefix",
 		"",
 		"schema database name prefix",
@@ -147,6 +154,7 @@ func describeCreate() *cobra.Command {
 		skips,
 		"schema skip database names",
 	)
+
 
 	return command
 }

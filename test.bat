@@ -1,1 +1,1 @@
-python E:\datax\datax\bin\datax.py D:\mygo\myproject\src\sync-mysql\asset\describes\init\db_wallet_2017\db_wallet_2017.tbl_account_pipeline_201704.json
+python E:\datax\datax\bin\datax.py D:\mygo\myproject\src\sync-mysql\asset\describes\hdfs\init\db_user.tb_user_sale.json
