@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5362999-444b-481c-a1a1-1b80c0c550cb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/content/hdfs/hdfsPlugin.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/content/mongo/reader.go" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/content/mysql/mysql.go" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asset/.variable" afterPath="$PROJECT_DIR$/asset/.variable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asset/columnTranstion.json" afterPath="$PROJECT_DIR$/asset/columnTranstion.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmd/describe.go" afterPath="$PROJECT_DIR$/cmd/describe.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmd/sync.go" afterPath="$PROJECT_DIR$/cmd/sync.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/content.go" afterPath="$PROJECT_DIR$/sync/content.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/dataxContext.go" afterPath="$PROJECT_DIR$/sync/dataxContext.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/describe.go" afterPath="$PROJECT_DIR$/sync/describe.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/job.go" afterPath="$PROJECT_DIR$/sync/job.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/rule.go" afterPath="$PROJECT_DIR$/sync/rule.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.bat" afterPath="$PROJECT_DIR$/test.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin/hdfsplugin/hdfsPlugin.go" afterPath="$PROJECT_DIR$/plugin/hdfsplugin/hdfsPlugin.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/columnTransition.go" afterPath="$PROJECT_DIR$/sync/columnTransition.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync/mysql2hdfs.go" afterPath="$PROJECT_DIR$/sync/mysql2hdfs.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,14 +31,32 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cmdparam.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sync/cmdparam.go">
+      <file leaf-file-name="db_distributor.tb_distributor.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_distributor/db_distributor.tb_distributor.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-224">
-              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-              <folding>
-                <element signature="e#14#42#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1931">
+              <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_order_2016.tb_order.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_order_2016/db_order_2016.tb_order.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-285">
+              <caret line="450" column="52" lean-forward="false" selection-start-line="450" selection-start-column="41" selection-end-line="450" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,6 +99,7 @@
       <find>mysqlplugi</find>
       <find>mysqlplugin</find>
       <find>NewDesscribeFromSchema</find>
+      <find>path</find>
     </findStrings>
     <replaceStrings>
       <replace>MySqlScheme</replace>
@@ -100,7 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/asset/describes/init/db_wallet_2017/db_wallet_2017.tbl_account_pipeline_201706.json" />
         <option value="$PROJECT_DIR$/rule/order.go" />
         <option value="$PROJECT_DIR$/rule/rule.go" />
         <option value="$PROJECT_DIR$/test.cmd" />
@@ -139,18 +150,19 @@
         <option value="$PROJECT_DIR$/plugin/combination.go" />
         <option value="$PROJECT_DIR$/sync/combination.go" />
         <option value="$PROJECT_DIR$/asset/tsconfig.json" />
-        <option value="$PROJECT_DIR$/asset/columnTranstion.json" />
         <option value="$PROJECT_DIR$/sync/dataxContext.go" />
         <option value="$PROJECT_DIR$/sync/columnTranstion.go" />
         <option value="$PROJECT_DIR$/sync/cmdparam.go" />
-        <option value="$PROJECT_DIR$/sync/columnTransition.go" />
-        <option value="$PROJECT_DIR$/plugin/hdfsplugin/hdfsPlugin.go" />
         <option value="$PROJECT_DIR$/sync/describe.go" />
         <option value="$PROJECT_DIR$/sync/job.go" />
         <option value="$PROJECT_DIR$/sync/mysql2mysql.go" />
-        <option value="$PROJECT_DIR$/cmd/describe.go" />
+        <option value="$PROJECT_DIR$/sync/columnTransition.go" />
+        <option value="$PROJECT_DIR$/asset/columnTranstion.json" />
         <option value="$PROJECT_DIR$/asset/.variable" />
+        <option value="$PROJECT_DIR$/cmd/describe.go" />
         <option value="$PROJECT_DIR$/sync/mysql2hdfs.go" />
+        <option value="$PROJECT_DIR$/plugin/hdfsplugin/hdfsPlugin.go" />
+        <option value="$PROJECT_DIR$/asset/describes/mysql2hdfs/sql/db_distributor.tb_distributor_order.sql" />
       </list>
     </option>
   </component>
@@ -222,7 +234,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sync" />
+              <option name="myItemId" value="plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -236,7 +248,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mysql" />
+              <option name="myItemId" value="plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hdfsplugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -250,21 +266,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sync-mysql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sync-mysql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="asset" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -395,8 +397,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26492536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23294243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -434,53 +437,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../thirdpart/src/github.com/robfig/cron/cron.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="71" column="5" lean-forward="false" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/io/ioutil/ioutil.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../thirdpart/src/github.com/spf13/cobra/command.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="656" column="18" lean-forward="false" selection-start-line="656" selection-start-column="18" selection-end-line="656" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sync/variable.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_schedule.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-          <folding>
-            <element signature="e#15#95#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/asset/context/context.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -520,13 +476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="47" lean-forward="true" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysql/db.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -663,14 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sync/column.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sync/dataxContext.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -705,37 +646,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asset/describes/hdfs/init/db_user.tb_user_sale.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1135">
-          <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/asset/runConfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1273">
           <caret line="67" column="3" lean-forward="true" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asset/columnTranstion.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sync/columnTransition.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
-          <folding>
-            <element signature="e#14#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -765,73 +680,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asset/.variable">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_distributor/db_distributor.tb_distributor.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1952">
-          <caret line="66" column="37" lean-forward="false" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sync/job.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="91" column="16" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sync/describe.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="97" column="48" lean-forward="false" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
-          <folding>
-            <element signature="e#14#93#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sync/combination.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugin/hdfsplugin/hdfsPlugin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="59" column="17" lean-forward="false" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-          <folding>
-            <element signature="e#20#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/sql/db_distributor.tb_distributor.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="49" lean-forward="true" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sync/mysql2hdfs.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1391">
-          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#96#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,23 +696,191 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/describe.go">
+    <entry file="file://$PROJECT_DIR$/mysql/db.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync/cmdparam.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync/column.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync/columnTransition.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/columnTranstion.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/hdfs/init/db_user.tb_user_sale.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="48" column="60" lean-forward="false" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/.variable">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_distributor/db_distributor.tb_distributor_order.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1182">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1495610607654" expanded="true" signature="33:3091" ph="[...]" />
+            <marker date="1495610607654" expanded="true" signature="47:3081" ph="{...}" />
+            <marker date="1495610607654" expanded="true" signature="1220:3067" ph="{&quot;name&quot;: &quot;hdfswriter&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="1297:3049" ph="{&quot;defaultFS&quot;: &quot;hdfs://172.16.90.1:9000&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="1575:2932" ph="[...]" />
+            <marker date="1495610607654" expanded="true" signature="1605:1743" ph="{&quot;name&quot;: &quot;distributor_id&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="1773:1904" ph="{&quot;name&quot;: &quot;user_id&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="1934:2076" ph="{&quot;name&quot;: &quot;expiring_order_amount&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="2106:2248" ph="{&quot;name&quot;: &quot;unfilled_order_amount&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="2278:2413" ph="{&quot;name&quot;: &quot;statistic_day&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="2443:2576" ph="{&quot;name&quot;: &quot;create_time&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="2606:2738" ph="{&quot;name&quot;: &quot;send_status&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="2768:2906" ph="{&quot;name&quot;: &quot;update_time&quot;...}" />
+            <marker date="1495610607654" expanded="true" signature="3112:3189" ph="{...}" />
+            <marker date="1495610607654" expanded="true" signature="3135:3179" ph="{&quot;channel&quot;: 1...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/describe.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="144" column="27" lean-forward="false" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
           <folding>
             <element signature="e#13#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sync/cmdparam.go">
+    <entry file="file://$PROJECT_DIR$/sync/describe.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="622">
+          <caret line="97" column="46" lean-forward="false" selection-start-line="97" selection-start-column="46" selection-end-line="97" selection-end-column="46" />
           <folding>
-            <element signature="e#14#42#0" expanded="true" />
+            <element signature="e#14#93#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync/combination.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync/mysql2hdfs.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="63" column="115" lean-forward="false" selection-start-line="63" selection-start-column="115" selection-end-line="63" selection-end-column="115" />
+          <folding>
+            <element signature="e#14#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_distributor/db_distributor.tb_goods.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-855">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/sql/db_distributor.tb_distributor.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="49" lean-forward="false" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin/hdfsplugin/hdfsPlugin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="68" column="84" lean-forward="false" selection-start-line="68" selection-start-column="84" selection-end-line="68" selection-end-column="84" />
+          <folding>
+            <element signature="e#20#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/sql/db_distributor.tb_distributor_order.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="157" lean-forward="true" selection-start-line="0" selection-start-column="157" selection-end-line="0" selection-end-column="157" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_distributor/db_distributor.tb_phones.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_distributor/db_distributor.tb_distributor.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1931">
+          <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/describes/mysql2hdfs/init/db_order_2016/db_order_2016.tb_order.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285">
+          <caret line="450" column="52" lean-forward="false" selection-start-line="450" selection-start-column="41" selection-end-line="450" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

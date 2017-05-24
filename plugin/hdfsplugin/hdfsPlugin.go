@@ -66,7 +66,7 @@ func (w *Writer) MakeCreateSql(tableName string) string{
 	rows := strings.Join(s,",")
 
 	return fmt.Sprintf(
-		"create table %s(%s) row format delimited fields terminated by \"\t\" STORED AS TEXTFILE;",
+		"create table %s(%s) row format delimited fields terminated by \"\\t\" STORED AS TEXTFILE;",
 		tableName,
 		rows,
 	)

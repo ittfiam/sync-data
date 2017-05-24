@@ -2,8 +2,44 @@
   "mysql2hdfs":{
     "column_type":[
       {
-        "name":[""],
-        "value":""
+        "name":["varchar", "char", "tinytext", "text", "mediumtext", "longtext", "year"],
+        "value":"STRING"
+      },
+      {
+        "name":["int"],
+        "value":"int"
+      },
+      {
+        "name":["smallint"],
+        "value":"smallint"
+      },
+      {
+        "name":["mediumint", "bigint"],
+        "value":"bigint"
+      },
+      {
+        "name":["tinyint"],
+        "value":"tinyint"
+      },
+      {
+        "name":["double","decimal"],
+        "value":"DOUBLE"
+      },
+      {
+        "name":["float"],
+        "value":"FLOAT"
+      },
+      {
+        "name":["bit", "bool"],
+        "value":"boolean"
+      },
+      {
+        "name":["datetime","date"],
+        "value":"date"
+      },
+      {
+        "name":["timestamp"],
+        "value":"timestamp"
       }
     ]
   }

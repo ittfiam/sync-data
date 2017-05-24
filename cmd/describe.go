@@ -98,7 +98,7 @@ func describeCreate() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&param.Source, &param.Target,&param.Reader,&param.Writer)
+			err = variable.GetValue(&param.Source,&param.Path, &param.Target,&param.Reader,&param.Writer)
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -139,6 +139,12 @@ func describeCreate() *cobra.Command {
 		&param.Writer,
 		"writer",
 		"$writer",
+		"reader mode  (value or $variable,like mysqlwriter)")
+
+	flags.StringVar(
+		&param.Path,
+		"path",
+		"$path",
 		"reader mode  (value or $variable,like mysqlwriter)")
 
 	flags.StringVar(

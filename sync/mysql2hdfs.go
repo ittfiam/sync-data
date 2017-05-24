@@ -4,25 +4,30 @@ import (
 	"fmt"
 	"sync-mysql/plugin/mysqlplugin"
 	"sync-mysql/plugin/hdfsplugin"
+	"errors"
 )
 
 
-func getColumns(dataxParam *DataXContext,param *CommandParam) []*hdfsplugin.Column{
+func getColumns(dataxParam *DataXContext,param *CommandParam) ([]*hdfsplugin.Column,error){
 	c := GetTransitionConfig()
 	tc := c.GetTConfigItem(param.GetTransitionMode())
 	if tc == nil{
-		return nil
+		return nil,errors.New("未能获取列转换配置")
 	}
 	result := make([]*hdfsplugin.Column,0)
 	for _,col := range dataxParam.Table.Columns{
+		ts := tc.GetValue(col.Type)
+		if ts == ""{
+			return nil,errors.New(fmt.Sprintf("%s未能找到对应的live转换类型",col.Type))
+		}
 		item := &hdfsplugin.Column{
 			Name:col.Name,
-			Types:tc.GetValue(col.Type),
+			Types:ts,
 		}
 		result = append(result,item)
 	}
 
-	return result
+	return result,nil
 
 }
 
@@ -50,9 +55,14 @@ func HdfsCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 	reader.Parameter.Password = sourceScheme.Password
 	reader.Parameter.Column = dataxParam.SubRule.Columns
 
+	cs,err := getColumns(dataxParam,param)
+	if err != nil{
+		fmt.Println(err)
+		return nil
+	}
 	writer.Parameter.DefaultFS = param.Target
-	writer.Parameter.Path = param.Path
-	writer.Parameter.Column = getColumns(dataxParam,param)
+	writer.Parameter.Path = fmt.Sprintf(param.Path,dataxParam.Rule.TargetDB +".db",dataxParam.SubRule.TargetTB)
+	writer.Parameter.Column = cs
 
 
 	work := NewWorker(reader,writer)

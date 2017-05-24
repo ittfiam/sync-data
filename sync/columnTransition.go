@@ -1,6 +1,9 @@
 package sync
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 var (
 	config *TransitionConfig
@@ -26,7 +29,14 @@ type TransitionConfig map[string]*TConfigItem
 
 func (c *TConfigItem) GetValue(s string) string{
 
-	return "string"
+	for _,t := range c.ColumnType{
+		for _,n := range t.Name{
+			if strings.ToLower(s) == n{
+				return t.Value
+			}
+		}
+	}
+	return ""
 }
 
 func newTransitionConfig() (*TransitionConfig, error) {
