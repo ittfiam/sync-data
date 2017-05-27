@@ -5,6 +5,7 @@ import (
 	"sync-mysql/plugin/mysqlplugin"
 	"sync-mysql/plugin/hdfsplugin"
 	"errors"
+	"time"
 )
 
 
@@ -63,6 +64,7 @@ func HdfsCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 	writer.Parameter.DefaultFS = param.Target
 	writer.Parameter.Path = fmt.Sprintf(param.Path,dataxParam.Rule.TargetDB +".db",dataxParam.SubRule.TargetTB)
 	writer.Parameter.Column = cs
+	writer.Parameter.FileName = dataxParam.SubRule.TargetTB + time.Now().Format("2006-01-02")
 
 
 	work := NewWorker(reader,writer)
@@ -75,7 +77,8 @@ func HdfsCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 	job.Collection = dataxParam.SubRule.TargetTB
 	job.Work = work
 	job.Sql = make([]string,0)
-	job.Sql = append(job.Sql,writer.MakeCreateSql(dataxParam.Table.Name))
+	job.Sql = append(job.Sql,writer.MakeDropSql(dataxParam.SubRule.TargetTB))
+	job.Sql = append(job.Sql,writer.MakeCreateSql(dataxParam.SubRule.TargetTB))
 	return job
 }
 

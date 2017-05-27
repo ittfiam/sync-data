@@ -56,6 +56,11 @@ func NewWriter() *Writer{
 	}
 }
 
+func (writer *Writer) MakeDropSql(tableName string) string{
+
+	return fmt.Sprintf("drop table if exists %s;",tableName)
+}
+
 
 func (w *Writer) MakeCreateSql(tableName string) string{
 

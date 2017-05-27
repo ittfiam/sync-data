@@ -80,7 +80,7 @@ func runPreSql(conn string, fileName string) error{
 
 func syncInitCmd() *cobra.Command {
 
-	var command,datax string
+	var command sync.SyncCmdParam
 	c := &cobra.Command{
 		Use:     "init",
 		Short:   "execute sync",
@@ -96,14 +96,14 @@ func syncInitCmd() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&command,&datax)
+			err = variable.GetValue(&command.Command,&command.Mode,&command.DataxPath)
 
 			if err != nil {
 				fmt.Println(err.Error())
 				return
 			}
 
-			fileList,_,err := sync.ReadFileList(filepath.Join("describes","init"))
+			fileList,_,err := sync.ReadFileList(filepath.Join("describes",command.Mode,"init"))
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -119,7 +119,7 @@ func syncInitCmd() *cobra.Command {
 				if !f.IsDir(){
 					continue
 				}
-				subFileList,parent,err:=sync.ReadFileList(filepath.Join("describes","init",f.Name()))
+				subFileList,parent,err:=sync.ReadFileList(filepath.Join("describes",command.Mode,"init",f.Name()))
 				if err != nil{
 					fmt.Println(err.Error())
 					return
@@ -130,7 +130,7 @@ func syncInitCmd() *cobra.Command {
 						continue
 					}
 
-					cp :=exec.Command(command,datax,filepath.Join(parent,subF.Name()))
+					cp :=exec.Command(command.Command,command.DataxPath,filepath.Join(parent,subF.Name()))
 					run(cp)
 				}
 
@@ -143,16 +143,22 @@ func syncInitCmd() *cobra.Command {
 	flags := c.Flags()
 
 	flags.StringVar(
-		&command,
+		&command.Command,
 		"command",
 		"$command",
 		"use datax sync data command (value or $command)")
 
 	flags.StringVar(
-		&datax,
-		"datax",
-		"$datax",
-		"use datax sync data command (value or $datax)")
+		&command.DataxPath,
+		"dataxpath",
+		"$dataxPath",
+		"use datax sync data command (value or $dataxPath)")
+
+	flags.StringVar(
+		&command.Mode,
+		"mode",
+		"$mode",
+		"use datax sync data command (value or $mode)")
 
 
 	return c

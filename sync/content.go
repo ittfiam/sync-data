@@ -49,7 +49,7 @@ func newContent(reader interface{},writer interface{}) *Content{
 
 type Jobs struct {
 
-	Content []*Content `json:"plugin"`
+	Content []*Content `json:"content"`
 
 	Sett *Setting `json:"setting"`
 

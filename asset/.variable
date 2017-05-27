@@ -1,15 +1,13 @@
 {
     "vars": {
-        "mongo": "172.16.0.101:27017",
-        "mysql": "mysql://dev:dev@useus@172.16.0.101:3306/db_boss#utf8",
         "source":"mysql://gaoguosheng:gaoguosheng@useus@172.16.0.101:3306/db_boss#utf8",
         "target":"hdfs://172.16.90.1:9000",
-        "mysql101": "chenhongchu:chenhongchu@useus@tcp(172.16.0.101:3306)/",
         "command":"python",
         "path":"/user/hive/warehouse/%s/%s",
         "reader":"mysqlreader",
         "writer":"hdfswriter",
-        "datax": "E:\\datax\\datax\\bin\\datax.py",
+        "mode":"mysql2hdfs",
+        "dataxPath": "E:\\datax\\datax\\bin\\datax.py",
         "notifyUrl": "http://172.16.100.4:8088/boss/statistics/update_mongo_statistics"
     }
 }

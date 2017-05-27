@@ -53,6 +53,7 @@ type Job struct {
 	Work *Work
 	Sql []string
 	Mode string
+	// 写入模式组合 reader2writer
 	WRName string
 }
 
