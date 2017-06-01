@@ -8,9 +8,9 @@ func Combination(dataxParam *DataXContext,param *CommandParam) *Job{
 
 
 	case "mysqlwriter":
-		return MysqlCombinationInit(dataxParam,param)
+		return MysqlMappingMode(dataxParam,param)
 	case "hdfswriter":
-		return HdfsCombinationInit(dataxParam,param)
+		return HdfsMappingMode(dataxParam,param)
 	default:
 		return nil
 

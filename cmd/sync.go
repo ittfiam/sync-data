@@ -10,7 +10,6 @@ import (
 	"bufio"
 	"io"
 	"strings"
-	"errors"
 	"sync-mysql/notify"
 )
 
@@ -49,21 +48,7 @@ func run(cmd *exec.Cmd) bool{
 
 func runPreSql(conn string, fileName string) error{
 
-
-	f := filepath.Join("describes","sql",fileName)
-	ok, err := sync.AssetExists(f)
-
-	if err != nil {
-		return err
-	}
-
-	if !ok{
-		fmt.Println("文件不存在",fileName)
-		return errors.New(fmt.Sprintf("文件不存在:%s" , fileName))
-	}
-
-
-	s,err:=sync.ReadAssetAsString(f)
+	s,err:=sync.ReadAsString(fileName)
 	if err != nil{
 		fmt.Println(err.Error())
 		return err
@@ -96,7 +81,7 @@ func syncInitCmd() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&command.Command,&command.Mode,&command.DataxPath)
+			err = variable.GetValue(&command.Command,&command.Mode,&command.DataxPath,&command.EnableNotify,&command.NotifyUrl)
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -119,7 +104,8 @@ func syncInitCmd() *cobra.Command {
 				if !f.IsDir(){
 					continue
 				}
-				subFileList,parent,err:=sync.ReadFileList(filepath.Join("describes",command.Mode,"init",f.Name()))
+				fp := filepath.Join("describes",command.Mode,"init",f.Name())
+				subFileList,parent,err:=sync.ReadFileList(fp)
 				if err != nil{
 					fmt.Println(err.Error())
 					return
@@ -167,8 +153,7 @@ func syncInitCmd() *cobra.Command {
 
 func syncPlanCmd() *cobra.Command {
 
-	var command,datax string
-	var notifyUrl = "$notifyUrl"
+	var command sync.SyncCmdParam
 	c := &cobra.Command{
 		Use:     "plan",
 		Short:   "execute sync plan",
@@ -184,7 +169,8 @@ func syncPlanCmd() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&command,&datax,&notifyUrl)
+			err = variable.GetValue(&command.Command,&command.Mode,&command.DataxPath,&command.EnableNotify,&command.NotifyUrl)
+
 
 			if err != nil {
 				fmt.Println(err.Error())
@@ -211,14 +197,12 @@ func syncPlanCmd() *cobra.Command {
 
 			pc.Start()
 
-
-
 			for _,f :=range fileList{
 
 				if !f.IsDir(){
 					continue
 				}
-				subFileList,parent,err:=sync.ReadFileList(filepath.Join("describes","init",f.Name()))
+				subFileList,parent,err:=sync.ReadFileList(filepath.Join("describes",command.Mode,"plan",f.Name()))
 				if err != nil{
 					fmt.Println(err.Error())
 					return
@@ -229,16 +213,18 @@ func syncPlanCmd() *cobra.Command {
 						continue
 					}
 
-					cp :=exec.Command(command,datax,pc.GetDataxParam(),filepath.Join(parent,subF.Name()))
+					cp :=exec.Command(command.Command,command.DataxPath,pc.GetDataxParam(),filepath.Join(parent,subF.Name()))
 					run(cp)
 					pc.SyncTableCount = pc.SyncTableCount + 1
 				}
 
 
 			}
-		//	save context
+			//save context
 			pc.End()
-			go notify.NotifyBoss(notifyUrl)
+			if command.EnableNotify == "true"{
+				go notify.NotifyBoss(command.NotifyUrl)
+			}
 
 		},
 	}
@@ -246,24 +232,42 @@ func syncPlanCmd() *cobra.Command {
 	flags := c.Flags()
 
 	flags.StringVar(
-		&command,
+		&command.Command,
 		"command",
 		"$command",
 		"use datax sync data command (value or $command)")
 
 	flags.StringVar(
-		&datax,
-		"datax",
-		"$datax",
-		"use datax sync data command (value or $datax)")
+		&command.DataxPath,
+		"dataxpath",
+		"$dataxPath",
+		"use datax sync data command (value or $dataxPath)")
 
+	flags.StringVar(
+		&command.Mode,
+		"mode",
+		"$mode",
+		"use datax sync data command (value or $mode)")
+
+	flags.StringVar(
+		&command.EnableNotify,
+		"enableNotify",
+		"$enableNotify",
+		"use datax sync data command (value or $enableNotify)")
+
+
+	flags.StringVar(
+		&command.NotifyUrl,
+		"notifyUrl",
+		"$notifyUrl",
+		"use datax sync data command (value or $notifyUrl)")
 
 	return c
 }
 
 func syncCreateCmd() *cobra.Command {
 
-	var file,target string
+	var file,target,mode string
 	c := &cobra.Command{
 		Use:     "runsql",
 		Short:   "drop and create table",
@@ -293,7 +297,7 @@ func syncCreateCmd() *cobra.Command {
 				fmt.Println(err.Error())
 				return
 			}
-			err = v.GetValue(&file,&target)
+			err = v.GetValue(&file,&target,&mode)
 			if err != nil {
 				fmt.Println(err.Error())
 				return
@@ -307,7 +311,9 @@ func syncCreateCmd() *cobra.Command {
 			cn := conninfo.ToGoMysqlAndDB()
 
 			if file == "all"{
-				fileList,_,err := sync.ReadFileList(filepath.Join("describes","sql"))
+
+				fp := filepath.Join("describes",mode,"sql")
+				fileList,parent,err := sync.ReadFileList(fp)
 
 				if err != nil {
 					fmt.Println(err.Error())
@@ -322,7 +328,7 @@ func syncCreateCmd() *cobra.Command {
 					if f.IsDir(){
 						continue
 					}
-					err := runPreSql(cn,f.Name())
+					err := runPreSql(cn,filepath.Join(parent,f.Name()))
 					if err != nil{
 						fmt.Println(err)
 						return
@@ -353,6 +359,12 @@ func syncCreateCmd() *cobra.Command {
 		&target,
 		"target",
 		"$target",
+		"use sync db scheme")
+
+	flags.StringVar(
+		&mode,
+		"mode",
+		"$mode",
 		"use sync db scheme")
 
 

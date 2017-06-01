@@ -8,6 +8,18 @@ import (
 /**
 全量组合
  */
+
+func MysqlMappingMode(dataxParam *DataXContext,param *CommandParam) *Job{
+
+	if param.Mode == 0{
+		return MysqlCombinationInit(dataxParam,param)
+	} else if param.Mode == 1{
+		return MysqlCombinationIncrement(dataxParam,param)
+	}
+
+	return nil
+}
+
 func MysqlCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 
 	sourceScheme,err := param.GetSourceSchema()
@@ -16,7 +28,7 @@ func MysqlCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 		return nil
 	}
 
-	targetScheme,err := param.GetSourceSchema()
+	targetScheme,err := param.GetTargetSchema()
 	if err != nil{
 		fmt.Println(err)
 		return nil
@@ -77,7 +89,7 @@ func MysqlCombinationIncrement(dataxParam *DataXContext,param *CommandParam) *Jo
 		return nil
 	}
 
-	targetScheme,err := param.GetSourceSchema()
+	targetScheme,err := param.GetTargetSchema()
 	if err != nil{
 		fmt.Println(err)
 		return nil
@@ -117,6 +129,7 @@ func MysqlCombinationIncrement(dataxParam *DataXContext,param *CommandParam) *Jo
 
 	job := new(Job)
 	job.Name = fmt.Sprintf("%s.%s", dataxParam.DbName, dataxParam.SubRule.TargetTB)
+	job.WRName = param.GetTransitionMode()
 	job.Enable = true
 	job.DB = dataxParam.DbName
 	job.Collection = dataxParam.SubRule.TargetTB

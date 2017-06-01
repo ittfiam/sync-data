@@ -56,17 +56,22 @@
     "all":true
   },
   {
-    "source_db":"db_distributor_check",
-    "target_db":"db_statistics",
-    "all":true
-  },
-  {
     "source_db":"db_goods",
     "target_db":"db_statistics",
     "all":true
   },
   {
     "source_db":"db_identity",
+    "target_db":"db_statistics",
+    "all":true
+  },
+  {
+    "source_db":"db_orders_daily",
+    "target_db":"db_statistics",
+    "all":true
+  },
+  {
+    "source_db":"db_notify",
     "target_db":"db_statistics",
     "all":true
   },
@@ -93,6 +98,72 @@
   {
     "source_db":"db_wallet",
     "target_db":"db_statistics",
-    "all":true
+    "sub":[
+      {
+        "source_tb":"tbl_account_recharge",
+        "target_tb":"tbl_account_recharge",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_activity_award",
+        "target_tb":"tbl_activity_award",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_distributor_account",
+        "target_tb":"tbl_distributor_account",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_extract_money",
+        "target_tb":"tbl_extract_money",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_fix_money",
+        "target_tb":"tbl_fix_money",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_income",
+        "target_tb":"tbl_income",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_income_daily",
+        "target_tb":"tbl_income_daily",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_income_weekly",
+        "target_tb":"tbl_income_weekly",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_money",
+        "target_tb":"tbl_money",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_schedule_task",
+        "target_tb":"tbl_schedule_task",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_shierfan_account",
+        "target_tb":"tbl_shierfan_account",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_transaction_business",
+        "target_tb":"tbl_transaction_business",
+        "update_column":"db_record_update_time"
+      },
+      {
+        "source_tb":"tbl_transaction_business_total",
+        "target_tb":"tbl_transaction_business_total",
+        "update_column":"db_record_update_time"
+      }
+    ]
   }
 ]

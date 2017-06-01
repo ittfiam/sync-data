@@ -52,26 +52,39 @@ func initCreate(param *sync.CommandParam,info *sync.SchemaInfo){
 	}
 }
 
-func incrementCreate(source *sync.ConnectScheme,target *sync.ConnectScheme,info *sync.SchemaInfo){
+func incrementCreate(param *sync.CommandParam,info *sync.SchemaInfo){
+
+	source,err := param.GetSourceSchema()
+
+	if err != nil{
+		return
+	}
 
 	schema, err := sync.NewSchemaFromMysql(source.ToGoMysql(), info)
 
 	if err != nil {
 		fmt.Println(err.Error())
+		return
 	}
 
-	describe,err2 := sync.IncrementDescribeFromSchema(
-		source,
-		target,
+	describe,err2 := sync.NewDescribeFromSchema(
+		param,
 		schema,
-		)
+	)
+
 	if err2 != nil {
 		fmt.Println(err2.Error())
 		return
 	}
+
+	if describe == nil{
+		fmt.Println("生成描述文件错误")
+		return
+	}
+
 	for _,job := range describe.Jobs{
 		err = sync.SaveAssetAsJSON(
-			filepath.Join("describes","increment",job.DB, job.Name + ".json"),
+			filepath.Join("describes",job.WRName,"plan",job.DB, job.Name + ".json"),
 			job.Work,
 		)
 		if err != nil {
@@ -110,6 +123,8 @@ func describeCreate() *cobra.Command {
 			info.Prefix = param.Prefix
 			info.AddSkips(skips...)
 
+			param.Mode = 0
+
 			initCreate(param,info)
 
 		},
@@ -139,13 +154,13 @@ func describeCreate() *cobra.Command {
 		&param.Writer,
 		"writer",
 		"$writer",
-		"reader mode  (value or $variable,like mysqlwriter)")
+		"writer mode  (value or $variable,like mysqlwriter)")
 
 	flags.StringVar(
 		&param.Path,
 		"path",
 		"$path",
-		"reader mode  (value or $variable,like mysqlwriter)")
+		"path hive save path  (value or $variable,like /user/hive/warehouse/%s/%s)")
 
 	flags.StringVar(
 		&param.Prefix,
@@ -167,7 +182,7 @@ func describeCreate() *cobra.Command {
 
 func describePlan() *cobra.Command {
 
-	var source, target, prefix string
+	param := new(sync.CommandParam)
 	skips := make([]string, 0)
 
 
@@ -183,30 +198,21 @@ func describePlan() *cobra.Command {
 				return
 			}
 
-			err = variable.GetValue(&source, &target)
+			err = variable.GetValue(&param.Source,&param.Path, &param.Target,&param.Reader,&param.Writer)
 
 			if err != nil {
 				fmt.Println(err.Error())
 				return
 			}
 
-			sourceScheme,err1 := sync.ParseScheme(source)
-			if err1 != nil {
-				fmt.Println(err.Error())
-				return
-			}
-
-			targetScheme,err2 := sync.ParseScheme(target)
-			if err2 != nil {
-				fmt.Println(err.Error())
-				return
-			}
 
 			info := sync.NewSchemaInfo()
-			info.Prefix = prefix
+			info.Prefix = param.Prefix
 			info.AddSkips(skips...)
 
-			incrementCreate(sourceScheme,targetScheme,info)
+			param.Mode = 1
+
+			incrementCreate(param,info)
 
 		},
 	}
@@ -214,19 +220,37 @@ func describePlan() *cobra.Command {
 	flags := command.Flags()
 
 	flags.StringVar(
-		&source,
+		&param.Source,
 		"source",
 		"$source",
-		"use mysql schema to generate describe (value or $variable)")
+		"use source schema to generate describe (value or $variable)")
 
 	flags.StringVar(
-		&target,
+		&param.Target,
 		"target",
 		"$target",
-		"user db to sync (value or $variable)")
+		"target db to sync data (value or $variable)")
 
 	flags.StringVar(
-		&prefix,
+		&param.Reader,
+		"reader",
+		"$reader",
+		"reader mode  (value or $variable,like mysqlreader)")
+
+	flags.StringVar(
+		&param.Writer,
+		"writer",
+		"$writer",
+		"writer mode  (value or $variable,like mysqlwriter)")
+
+	flags.StringVar(
+		&param.Path,
+		"path",
+		"$path",
+		"path hive save path  (value or $variable,like /user/hive/warehouse/%s/%s)")
+
+	flags.StringVar(
+		&param.Prefix,
 		"prefix",
 		"",
 		"schema database name prefix",

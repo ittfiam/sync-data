@@ -56,19 +56,7 @@ func AssetExists(relative string) (bool, error) {
 
 }
 
-func ReadAssetAsString(relative string) (string,error){
-	abs, err := filepath.Abs(os.Args[0])
-
-	if err != nil {
-		return "",errors.ToFormatError(
-			err,
-			"read asset(%s) fail.", relative,
-		)
-	}
-
-	abs, _ = filepath.Split(abs)
-
-	filename := filepath.Join(abs,"asset",relative)
+func ReadAsString(filename string) (string,error){
 
 	b, err := ioutil.ReadFile(filename)
 

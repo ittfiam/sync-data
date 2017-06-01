@@ -9,6 +9,20 @@ import (
 )
 
 
+
+func HdfsMappingMode(dataxParam *DataXContext,param *CommandParam) *Job{
+
+	if param.Mode == 0{
+		return HdfsCombinationInit(dataxParam,param)
+	} else if param.Mode == 1{
+		fmt.Println("暂不支持")
+		return nil
+		//return HdfsCombinationIncrement(dataxParam,param)
+	}
+
+	return nil
+}
+
 func getColumns(dataxParam *DataXContext,param *CommandParam) ([]*hdfsplugin.Column,error){
 	c := GetTransitionConfig()
 	tc := c.GetTConfigItem(param.GetTransitionMode())
@@ -85,7 +99,7 @@ func HdfsCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 /**
 增量组合
  */
-func CombinationIncrement(dataxParam *DataXContext,param *CommandParam) *Job{
+func HdfsCombinationIncrement(dataxParam *DataXContext,param *CommandParam) *Job{
 
 
 	sourceScheme,err := param.GetSourceSchema()

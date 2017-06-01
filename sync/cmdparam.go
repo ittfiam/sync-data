@@ -11,6 +11,7 @@ type CommandParam struct {
 	Prefix string
 	Reader string
 	Writer string
+	Mode int 	// 初始化还是增量描述文件  0:初始化 1:增量
 	Path string
 	sourceSchema *ConnectScheme
 	targetSchema *ConnectScheme
@@ -37,7 +38,7 @@ func (param *CommandParam) GetTargetSchema()  (*ConnectScheme,error){
 
 	if param.targetSchema == nil{
 
-		s,err := ParseScheme(param.Source)
+		s,err := ParseScheme(param.Target)
 		if err != nil{
 			return nil,err
 		}
