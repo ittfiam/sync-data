@@ -91,6 +91,7 @@ func HdfsCombinationInit(dataxParam *DataXContext,param *CommandParam) *Job{
 	job.Collection = dataxParam.SubRule.TargetTB
 	job.Work = work
 	job.Sql = make([]string,0)
+	job.Sql = append(job.Sql,fmt.Sprintf("use %s;",dataxParam.Rule.TargetDB))
 	job.Sql = append(job.Sql,writer.MakeDropSql(dataxParam.SubRule.TargetTB))
 	job.Sql = append(job.Sql,writer.MakeCreateSql(dataxParam.SubRule.TargetTB))
 	return job
