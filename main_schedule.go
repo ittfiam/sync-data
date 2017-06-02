@@ -52,7 +52,7 @@ func schedulerSyncFile(){
 
 func SchedulerIncrement(){
 	fmt.Println("Start")
-	root.SetArgs([]string{"sync","plan","--command=$command","--datax=$datax"})
+	root.SetArgs([]string{"sync","plan","--command=$command","--dataxpath=$dataxPath"})
 	err := root.Execute()
 	if err != nil{
 		fmt.Println(err.Error())
